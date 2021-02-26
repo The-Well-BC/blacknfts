@@ -286,7 +286,7 @@ color: #000000;
     
     font-family: GT Sectra Fine;
     font-style: normal;
-    font-weight: normal;
+    
     font-size: 38px;
     line-height: 46px;
     display: flex;
@@ -312,4 +312,63 @@ color: #000000;
     
     color: #000000;
 }
+
+.list{
+    position: absolute;
+width: 33%;
+
+left: 8%;
+top: 28%;
+
+font-family: GT Sectra Fine;
+font-style: italic;
+font-weight: normal;
+font-size: 108px;
+line-height: 137.4%;
+/* or 148px */
+
+
+color: #000000;
+}
+
+.line1{
+    position: absolute;
+width: 100%;
+height: 0%;
+left: 0%;
+top: 48%;
+
+border: 1px solid #000000;
+}
  
+
+.line2{
+        position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0%;
+    top: 66%;
+    
+    border: 1px solid #000000;
+    
+}
+
+.line3{
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0%;
+    top: 84%;
+    
+    border: 1px solid #000000;
+}
+
+.line4{
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0%;
+    top: 102%;
+    
+    border: 1px solid #000000;
+}
