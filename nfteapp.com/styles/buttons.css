@@ -1,0 +1,9 @@
+button {
+    border-width: 1px;
+    border-style: solid;
+
+    padding: 1rem;
+
+    font-size: 1.5rem;
+    line-height: 1em;
+}
