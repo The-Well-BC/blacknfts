@@ -1,0 +1,9 @@
+div.list p {
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.list div {
+    border-bottom :1px solid black;
+}
