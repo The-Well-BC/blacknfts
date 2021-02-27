@@ -1,23 +1,41 @@
 <template>
-<div id = 'app'>
-    <h1 class="container culture-media">CULTUREMEDIA©</h1>
+    <div id = 'page' :data-fitscreen = fitScreen>
+    <h1 class="container culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
     <router-view/>
 
     <footer class="container">
         <nav>
             <router-link :to = '{name: "Artists"}'>Artist List</router-link>
-            <a href="" class="about"> About</a>
-            <a href="" class="NFTs"> NFTs</a>
+            <router-link :to = '{name: "About"}'>About</router-link>
+            <router-link :to = '{name: "About"}'>NFTs</router-link>
         </nav>
         <p class="the-well">TheWell©</p>
     </footer>
 </div>
 </template>
 
-<style src = '@/assets/styles/main.css'></style>
+<script>
+export default {
+    computed: {
+        fitScreen() {
+            let route = this.$route.name;
+
+            if(route === 'Artists')
+                return true;
+            else return false;
+        }
+    }
+}
+</script>
+
 <style src = '@/assets/styles/buttons.css'></style>
+<style src = '@/assets/styles/links.css'></style>
+<style src = '@/assets/styles/main.css'></style>
 <style>
-div#app {
+div#page[data-fitscreen=true] {
+    height: 100vh;
+}
+div#page {
     display: flex;
     flex-direction: column;
 }

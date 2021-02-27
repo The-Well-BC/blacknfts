@@ -1,3 +1,7 @@
+div.list {
+    max-height: 90vh;
+    overflow-y: scroll;
+}
 div.list p {
     font-size: 3rem;
     display: flex;
@@ -6,4 +10,9 @@ div.list p {
 
 div.list div {
     border-bottom :1px solid black;
+}
+
+a {
+    white-space: nowrap;
+    font-family: 'Maison Neue';
 }

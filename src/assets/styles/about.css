@@ -20,6 +20,12 @@ div.main > div{
     flex-grow: 0;
 }
 
+div.buttons {
+    display: flex;
+    grid-gap: 2rem;
+    margin-top: 4rem;
+}
+
 .rectangle-one{
     width: 56.5%;
     height: 488px;
@@ -188,9 +194,56 @@ align-items: center;
 color: #000000;
 }
 
+.about{
+    height: 102px;
+    left: 23%;
+    top: 110%;
+    
+    font-family: GT Sectra Fine;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 38px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+}
+
+.NFTs{
+    height: 102px;
+    left: 35%;
+    top: 110%;
+    
+    font-family: GT Sectra Fine;
+    font-style: normal;
+    
+    font-size: 38px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+}
+
 .the-well{
     font-family: GT Sectra Fine;
     font-style: normal;
     font-weight: normal;
     font-size: 3rem;
+}
+ 
+
+footer {
+    margin-top: 5vh;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+
+    grid-gap: 2em;
 }

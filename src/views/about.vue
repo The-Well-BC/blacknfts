@@ -1,31 +1,37 @@
 <template>
 <div>
-    <div class="container">
-        <h1 class="culture-media">CULTUREMEDIA©</h1>
+    <div>
+        <p>When platforms don’t ride for you, the culture creates one for themselves → </p>
     </div>
-    <div class="about-text-one">
-        When platforms don’t ride for you, the culture creates one <br> for themselves → 
-    </div>
+    <div>
+        <p>Consider Supporting:</p>
 
-    <div class="about-text-two">
-       <p>
-        We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform. 
-
-        This is CULTUREMEDIA.
-       </p>
+        <p v-for = '(item, index) in support' :key = 'index'>→ {{ item.name }}</p>
     </div>
 
-    <div class="container">
-        <a href="Artist-List.html" class="artist-list" style="color: black;"> Artist List </a>
+    <div>
+        <p>We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform. Discover black crypto creatives, share their works, collect them and be part of their ever growing legend.</p>
 
-        <a href="about.html" class="about" style="color: black;"> About</a>
-  
-        <a href="landingPage.html" class="NFTs" style="color: black;"> <b>NFTs</b></a>
-   
-        <p class="the-well">TheWell©</p>
-    </div>
-    <div class="empty-div">
-
+        <p>This is CULTUREMEDIA.</p>
     </div>
 </div>
 </template>
+
+<script>
+    export default {
+        data() { 
+            return {
+                support: [{
+                    name: 'MintFund',
+                    url: 'https://minfund.co'
+                }, {
+                    name: 'One/OFF'
+                }, {
+                    name: 'Buying Black Art'
+                }]
+            }
+        }
+    }
+</script>
+
+<style scoped src = '@/assets/styles/about.css'></style>
