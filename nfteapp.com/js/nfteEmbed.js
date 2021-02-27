@@ -1,10 +1,8 @@
 (() => {
     return randomNFT()
-    .then(tokenID => {
-        console.log('TOKEN ID', tokenID);
-        let randomTokenId = tokenID;
-
-        let nfteURL = "https://nfte.app/api/embed.js?contract=0x60f80121c31a0d46b5279700f9df786054aa5ee5&tokenId=" + randomTokenId;
+    .then(randomToken => {
+        console.log('TOKEN ID', randomToken);
+        let nfteURL = `https://nfte.app/api/embed.js?contract=${randomToken.contractAddr}&tokenId=` + randomToken.id;
 
         let nfteEmbed = document.createElement('script');
 
