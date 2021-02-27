@@ -1,0 +1,27 @@
+#nft-embed {
+    flex-grow: 1;
+}
+#nft-embed .nfte--loaded {
+    min-width: 300px;
+    max-width: 850px;
+
+    display: grid;
+    grid-template-columns: 60% auto;
+
+    grid-template-areas: "media createdBy"
+                         "media nftName"
+                         "media description"
+                         "media meta"
+                         "media buy";
+}
+
+#nft-embed  .nfte--loaded > section.nfte__media {
+    grid-area: media;
+
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#nft-embed .nfte--loaded > section.pr1.pl1.pt0.pb0.nfte__header {
+    grid-area: createdBy;
+}
