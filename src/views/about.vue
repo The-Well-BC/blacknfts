@@ -36,3 +36,4 @@ export default {
 </script>
 
 <style scoped src = '@/assets/styles/about.css'></style>
+<style scoped src = '@/assets/styles/about-responsive.css'></style>

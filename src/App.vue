@@ -39,6 +39,9 @@ export default {
 <style src = '@/assets/styles/buttons.css'></style>
 <style src = '@/assets/styles/links.css'></style>
 <style src = '@/assets/styles/main.css'></style>
+
+<style src = '@/assets/styles/main-responsive.css'></style>
+
 <style>
 div#page[data-fitscreen=true] {
     height: 100vh;

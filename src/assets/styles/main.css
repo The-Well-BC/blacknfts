@@ -31,16 +31,11 @@ h1.culture-media{
     font-size: 9rem;
 }
 
-div.buttons {
-    display: flex;
-    grid-gap: 2rem;
-    margin-top: 4rem;
-}
-
 footer {
     align-self: flex-end;
     margin-top: 5vh;
     padding-bottom: 2rem;
+    padding-top: 2rem;
 
     display: flex;
     justify-content: space-between;

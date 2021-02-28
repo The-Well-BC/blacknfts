@@ -1,9 +1,13 @@
-#nft-embed {
-    flex-grow: 1;
+div.loading {
+    height: 50vh;
 }
+
+#nft-embed {
+    flex-shrink: 0.33;
+}
+
 #nft-embed >>> .nfte--loaded {
     min-width: 300px;
-    max-width: 850px;
 
     display: grid;
     grid-template-columns: 60% auto;

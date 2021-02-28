@@ -56,3 +56,4 @@ export default {
 </script>
 
 <style scoped src = '@/assets/styles/artistList.css'></style>
+<style scoped src = '@/assets/styles/artistList-responsive.css'></style>

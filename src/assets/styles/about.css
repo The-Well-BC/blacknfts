@@ -29,6 +29,7 @@ div#flex {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    grid-gap: 3em;
 }
 
 .support {

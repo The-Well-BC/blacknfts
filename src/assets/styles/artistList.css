@@ -6,6 +6,8 @@ div.list p {
     font-size: 3rem;
     display: flex;
     justify-content: space-between;
+
+    grid-gap: 2rem;
 }
 
 div.list div {
