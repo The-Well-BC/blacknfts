@@ -1,7 +1,7 @@
 <template>
 <div class = 'list'>
     <div v-for = '(item, index) in artists' :key = 'index'>
-        <p class="list container"> → {{ item.name }}
+        <p class="container"> → {{ item.name }}
             <a v-if = 'item.twitterProfile' target = '_blank' :href = 'item.twitterProfile'>twitter ↗</a>
         </p>
     </div>

@@ -1,3 +1,7 @@
+body, html, div, p {
+    box-sizing: border-box;
+}
+
 body{
     color: #000000;
     overflow-x: hidden; 
@@ -12,10 +16,19 @@ body{
 }
 
 h1.culture-media{
-    margin-top: 3rem;
     font-size: 9vw;
-
     text-align: center;
+}
+
+.rideForYou {
+    font-size: 7rem;
+    font-style: italic;
+    line-height: 1em;
+}
+
+.culturemedia {
+    text-transform: uppercase;
+    font-size: 9rem;
 }
 
 div.buttons {
@@ -25,10 +38,13 @@ div.buttons {
 }
 
 footer {
+    align-self: flex-end;
     margin-top: 5vh;
+    padding-bottom: 2rem;
 
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 footer > nav {

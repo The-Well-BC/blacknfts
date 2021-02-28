@@ -1,6 +1,6 @@
 <template>
     <div id = 'page' :data-fitscreen = fitScreen>
-    <h1 class="container culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
+    <h1 v-if = 'showHeader' class="container culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
     <router-view/>
 
     <footer class="container">
@@ -17,6 +17,13 @@
 <script>
 export default {
     computed: {
+        showHeader() {
+            let route = this.$route.name != 'Home';
+
+            console.log('ROUTE', route);
+
+            return this.$store.getters.showHeader || route;
+        },
         fitScreen() {
             let route = this.$route.name;
 
@@ -35,8 +42,15 @@ export default {
 div#page[data-fitscreen=true] {
     height: 100vh;
 }
+div#page > * {
+    flex: 100% 1 0;
+}
 div#page {
+    position:relative;
+    padding-top: 3rem;
+    min-height: 100vh;
+
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 </style>

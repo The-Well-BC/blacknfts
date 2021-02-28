@@ -1,0 +1,5 @@
+@media screen and (max-width: 420px) {
+    h1.culture-media {
+        font-size: 10vw;
+    }
+}

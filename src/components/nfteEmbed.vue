@@ -86,6 +86,5 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped src = '@/assets/styles/nfteEmbed.css'></style>
 

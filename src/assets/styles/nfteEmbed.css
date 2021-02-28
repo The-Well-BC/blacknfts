@@ -1,7 +1,7 @@
 #nft-embed {
     flex-grow: 1;
 }
-#nft-embed .nfte--loaded {
+#nft-embed >>> .nfte--loaded {
     min-width: 300px;
     max-width: 850px;
 
@@ -15,13 +15,47 @@
                          "media buy";
 }
 
-#nft-embed  .nfte--loaded > section.nfte__media {
+#nft-embed >>> .nfte--loaded section.nfte__media {
     grid-area: media;
 
     max-height: 100%;
     max-width: 100%;
 }
 
-#nft-embed .nfte--loaded > section.pr1.pl1.pt0.pb0.nfte__header {
+#nft-embed >>> .nfte--loaded section.pr1.pl1.pt0.pb0.nfte__header {
     grid-area: createdBy;
 }
+
+#nft-embed >>> a.nfte__view-buy {
+    font-size: 1.3rem;
+
+    background: #000000;
+    color: white;
+    height: fit-content;
+}
+
+.bid-buy-btn{
+    background: #000000;
+    color: white;
+}
+
+.show-me-culture{
+    background: #000000;
+    border-color: #000000;
+    color: white;
+    font-family: Maison Neue;
+    font-style: normal;
+    font-weight: bold;
+
+}
+
+.throw-some-heat{
+    background: #D90E0E;
+    border-color: #D90E0E;
+    font-family: Maison Neue;
+    font-style: normal;
+    font-weight: bold;
+
+    color: white;
+}
+
