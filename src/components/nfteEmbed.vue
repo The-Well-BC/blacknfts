@@ -2,8 +2,11 @@
 <div id = "nft-embed" ref = 'nft-embed'>
     <div></div>
 
+    <div v-if = 'loading' class = 'loading'>
+    </div>
+
     <div class = 'buttons'>
-        <button class="show-me-culture">show me culture</button>
+        <button @click = 'placeEmbed' class="show-me-culture">show me culture</button>
         <button class="throw-some-heat">throw some heat</button>
     </div>
 </div>
@@ -13,11 +16,20 @@
 export default {
     data() {
         return {
-            token: null 
+            token: null,
+            loading: true
         }
     },
     methods: {
         placeEmbed() {
+            this.loading = true;
+            if(this.token !== null) {
+                let child = this.$refs['nft-embed'].firstElementChild;
+                child.innerHTML = '';
+            }
+
+            this.token = null;
+
             return this.randomNFT()
             .then(randomToken => {
                 console.log('TOKEN ID', randomToken);
@@ -27,6 +39,7 @@ export default {
 
                 nfteEmbed.src = nfteURL;
                 this.$refs['nft-embed'].firstElementChild.insertAdjacentElement('afterend', nfteEmbed);
+                this.loading = false;
             });
         },
         randomNFT() {
