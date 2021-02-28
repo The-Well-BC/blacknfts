@@ -35,6 +35,7 @@ export default {
 }
 </script>
 
+<style src = '@/assets/styles/fonts.css'></style>
 <style src = '@/assets/styles/buttons.css'></style>
 <style src = '@/assets/styles/links.css'></style>
 <style src = '@/assets/styles/main.css'></style>

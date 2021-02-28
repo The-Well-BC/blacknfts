@@ -1,0 +1,25 @@
+@font-face {
+   font-family: 'GT Sectra Fine';
+   src: url('../fonts/GT-Sectra-Fine-Book.ttf');
+}
+@font-face {
+   font-family: 'GT Sectra Fine';
+   src: url('../fonts/GT-Sectra-Fine-Book-Italic.ttf');
+   font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Maison Neue';
+    src: url('../fonts/MaisonNeue-Book.ttf');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-weight: bold;
+    src: url('../fonts/MaisonNeue-Bold.ttf');
+}
+@font-face {
+    font-family: 'Maison Neue';
+    font-weight: 600;
+    src: url('../fonts/MaisonNeue-Medium.ttf');
+}
