@@ -5,6 +5,8 @@
             <p>We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform.</p>
 
             <p>This is<br>CULTUREMEDIA.</p>
+
+            <button @click = 'placeEmbed' class="show-me-culture">show me culture</button>
         </div>
 
         <TokenEmbed></TokenEmbed>

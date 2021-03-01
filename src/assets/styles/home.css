@@ -33,6 +33,16 @@ div.header p {
     margin-top: 4rem;
 }
 
+.show-me-culture{
+    background: #000000;
+    border-color: #000000;
+    color: white;
+    font-family: Maison Neue;
+    font-style: normal;
+    font-weight: bold;
+
+}
+
 div.main {
     display: flex;
     justify-content: center;
@@ -54,6 +64,12 @@ div.main > div{
     flex-shrink: 1;
     flex-grow: 1;
 }
+
+>>> #nft-embed {
+    flex: 75% 0.5 1;
+    max-width: 100%;
+}
+
 div#page2.switch-enter-active,
 div#page2.switch-leave-active {
     position: absolute;
@@ -76,7 +92,6 @@ div#page2.switch-enter-active {
 }
 /* END Switch transitions */
 
-
 .creator-name{
     width: 2%;
     height: 42px;
@@ -89,106 +104,4 @@ div#page2.switch-enter-active {
     line-height: 24px;
 
     color: #000000;
-}
-
-.sex-sells{
-    width: 100%;
-    height: 62px;
-    left: 6%;
-    top: 16%;
-
-    font-family: Maison Neue;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 28px;
-}
-
-.art-material{
-    width: 325px;
-    height: 179px;
-    left: 6%;
-    top: 30%;
-    
-    font-family: Maison Neue;
-    font-size: 1.3rem;
-    line-height: 1em;
-}
-
-.rectangle-three-inside-two{
-width: 24.5%;
-height: 18.4%;
-left: 67%;
-top: 72%;
-
-background: #FFFFFF;
-border: 1px solid #CCCCCC;
-box-sizing: border-box;
-}
-
-.nft-owner{
-width: 2%;
-height: 43px;
-left: 6%;
-top: 18%;
-
-font-family: Maison Neue;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 17px;
-
-color: #000000;
-
-}
-.minter{
-width: 98px;
-height: 43px;
-left: 30%;
-top: 18%;
-
-font-family: Maison Neue;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
-
-color: #000000;
-}
-
-.time-of-mint{
-width: 118px;
-height: 43px;
-left: 55%;
-top: 18%;
-
-font-family: Maison Neue;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
-
-color: #000000;
-}
-
-.artist-list{
-height: 102px;
-left: 6%;
-top: 110%;
-
-font-family: GT Sectra Fine;
-font-style: normal;
-font-weight: normal;
-font-size: 38px;
-line-height: 46px;
-display: flex;
-align-items: center;
-
-color: #000000;
-}
-
-.the-well{
-    font-family: GT Sectra Fine;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3rem;
 }

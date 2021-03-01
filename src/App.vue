@@ -1,6 +1,6 @@
 <template>
     <div id = 'page' :data-fitscreen = fitScreen>
-    <h1 v-if = 'showHeader' class="container culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
+    <h1 v-if = 'showHeader' class="culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
     <router-view/>
 
     <footer>
