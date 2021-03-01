@@ -102,3 +102,4 @@ export default {
 </script>
 
 <style scoped src = '@/assets/styles/nfteEmbed.css'></style>
+<style scoped src = '@/assets/styles/nfteEmbed-responsive.css'></style>

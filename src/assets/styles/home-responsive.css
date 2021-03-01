@@ -1,6 +1,22 @@
+@media screen and (min-width: 1401px) {
+    .body-text {
+        font-size: 2.3rem;
+    }
+}
+
 @media screen and (max-width: 1400px) {
     div.header {
         font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .body-text {
+        font-size: 2rem;
+    }
+
+    div.main {
+        flex-wrap: wrap;
     }
 }
 

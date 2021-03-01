@@ -1,0 +1,19 @@
+@media screen and (max-width: 729px) {
+    #nft-embed >>> .nfte--loaded {
+        display: block;
+        height: 800px;
+    }
+
+    #nft-embed >>> .nfte--loaded section.nfte__media {
+        width: 100%;
+    }
+
+    #nft-embed >>> .nfte--loaded section.nfte__media,
+    #nft-embed >>> .nfte--loaded section.nfte__media > * {
+        height: 400px;
+    }
+
+    #nft-embed >>> .nfte--loaded p.nfte__description {
+        height: 162px;
+    }
+}
