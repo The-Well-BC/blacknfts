@@ -46,18 +46,19 @@ export default {
         return {
             showHome: false,
             touch: {
-                intialY: null
+                initialY: null
             }
         }
     },
     methods: {
         handleScroll(event) {
+
             let docHeight = document.getElementById('app').scrollHeight;
 
-            let scrolledToBottom = (window.innerHeight + window.scrollY === docHeight);
+            let scrolledToBottom = (window.innerHeight + window.scrollY >= docHeight);
             let scrolledToTop = window.scrollY === 0;
 
-            // console.log({ scrolledToBottom, scrolledToTop });
+            console.log({ scrolledToBottom, scrolledToTop });
 
             let dy = event.deltaY || ( this.touch.initialY - event.changedTouches[0].clientY );
 
