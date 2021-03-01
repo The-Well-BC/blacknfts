@@ -47,13 +47,13 @@ div#page[data-fitscreen=true] {
     height: 100vh;
 }
 div#page > * {
-    flex: 100% 1 0;
+    width: 100%;
 }
 div#page {
-    position:relative;
     min-height: 100vh;
-
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
+
+
 </style>
