@@ -10,7 +10,7 @@
                 <router-link :to = '{name: "About"}'>About</router-link>
                 <router-link :to = '{name: "Home"}'>NFTs</router-link>
             </nav>
-            <p class="the-well">TheWell©</p>
+            <a target = '_blank' href = 'https://ownthewell.com' class="the-well">TheWell©</a>
         </div>
     </footer>
 </div>
