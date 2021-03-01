@@ -58,8 +58,6 @@ export default {
             let scrolledToBottom = (window.innerHeight + window.scrollY >= docHeight);
             let scrolledToTop = window.scrollY === 0;
 
-            console.log({ scrolledToBottom, scrolledToTop });
-
             let dy = event.deltaY || ( this.touch.initialY - event.changedTouches[0].clientY );
 
             if(scrolledToBottom && dy > 10)

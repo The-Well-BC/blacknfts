@@ -22,8 +22,6 @@ export default {
         showHeader() {
             let route = this.$route.name != 'Home';
 
-            console.log('ROUTE', route);
-
             return this.$store.getters.showHeader || route;
         },
         fitScreen() {

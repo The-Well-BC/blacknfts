@@ -34,7 +34,6 @@ export default {
 
             return this.randomNFT()
             .then(randomToken => {
-                console.log('TOKEN ID', randomToken);
                 let nfteURL = `https://nfte.app/api/embed.js?contract=${randomToken.contractAddr}&tokenId=` + randomToken.id;
 
                 let nfteEmbed = document.createElement('script');

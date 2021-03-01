@@ -12,13 +12,7 @@
 export default { 
     data() {
         return {
-            artists: [{
-                name: 'artbyaili',
-                twitterProfile: 'https://twitter.com'
-            }, {
-                name: 'urBen',
-                twitterProfile: 'https://twitter.com'
-            }]
+            artists: [ ]
         }
     }, 
     methods: {
