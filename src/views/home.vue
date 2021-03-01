@@ -44,7 +44,10 @@ export default {
     name: 'Home',
     data() {
         return {
-            showHome: false
+            showHome: false,
+            touch: {
+                intialY: null
+            }
         }
     },
     methods: {
@@ -56,22 +59,32 @@ export default {
 
             // console.log({ scrolledToBottom, scrolledToTop });
 
-            if(scrolledToBottom && event.deltaY > 10)
+            let dy = event.deltaY || ( this.touch.initialY - event.changedTouches[0].clientY );
+
+            if(scrolledToBottom && dy > 10)
                 this.showHome = true;
-            else if(scrolledToTop && event.deltaY < -150)
+            else if(scrolledToTop && dy < -150)
                 this.showHome = false;
 
             this.$store.state.showHeader = this.showHome;
+        },
+
+        handleTouchStart(event) {
+            this.touch.initialY = event.changedTouches[0].clientY;
         }
     },
     unmounted() {
         document.removeEventListener('wheel', this.handleScroll, true);
+        document.removeEventListener('touchstart', this.handleTouchStart, true);
+        document.removeEventListener('touchend', this.handleScroll, true);
     },
     mounted() {
         let self = this;
         self.$store.state.showHeader = false;
 
         document.addEventListener('wheel', this.handleScroll, true);
+        document.addEventListener('touchstart', this.handleTouchStart, true);
+        document.addEventListener('touchend', this.handleScroll, true);
     },
     components: { TokenEmbed }
 }
