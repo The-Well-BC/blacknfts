@@ -7,7 +7,9 @@
 
     <div class = 'buttons'>
         <button @click = 'placeEmbed' class="show-me-culture">show me culture</button>
+        <!--
         <button class="throw-some-heat">throw some heat</button>
+        -->
     </div>
 </div>
 </template>
