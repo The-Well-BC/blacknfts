@@ -30,17 +30,20 @@ div#flex {
     justify-content: space-between;
     flex-wrap: wrap;
     grid-gap: 3em;
-}
 
-.support {
-    margin: 0;
+    font-family: 'Maison Neue';
 }
 
 div#flex > div {
-    flex-basis: 50%;
+    flex-basis: calc(50% - 3em);
+    flex-grow: 1;
     grid-gap: 2rem;
 
     font-size: 1.5rem;
 
     line-height: 1em;
+}
+
+.support {
+    margin: 0;
 }

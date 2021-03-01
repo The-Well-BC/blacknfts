@@ -1,2 +1,5 @@
 @media screen and (max-width: 900px) {
+    div#flex {
+        grid-gap: 3em;
+    }
 }

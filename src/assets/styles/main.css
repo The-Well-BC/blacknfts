@@ -21,6 +21,12 @@ nav a.router-link-exact-active {
     padding-right: 2rem;
 }
 
+/* LINKS */
+a:hover {
+    color: #D90E0E;
+}
+/* ---- LINKS --------- */
+
 h1.culture-media{
     padding-top: 3rem;
     font-size: 7vw;
@@ -45,6 +51,8 @@ footer {
     padding-top: 2rem;
 
     border-top: 2px solid grey;
+
+    font-size: 1.5rem;
 }
 
 footer > div {
@@ -60,18 +68,8 @@ footer nav {
     grid-gap: 2em;
 }
 
-footer nav a {
+footer a {
     color: #000000;
     
-    font-size: 3rem;
     line-height: 1.2em;
-}
-
-footer .the-well {
-    display: flex;
-    align-items: center;
-
-    font-size: 1.5rem;
-
-    margin: 0;
 }

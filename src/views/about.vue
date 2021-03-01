@@ -6,7 +6,7 @@
         <div>
             <p>Consider Supporting:</p>
 
-            <p class = 'support' v-for = '(item, index) in support' :key = 'index'>→ {{ item.name }}</p>
+            <p class = 'support' v-for = '(item, index) in support' :key = 'index'>→ <a :href = 'item.url'>{{ item.name }}</a></p>
         </div>
 
         <div>
@@ -24,9 +24,10 @@ export default {
         return {
             support: [{
                 name: 'MintFund',
-                url: 'https://minfund.co'
+                url: 'https://mint.af'
             }, {
-                name: 'One/OFF'
+                name: 'One/OFF',
+                url: 'https://xx1off.art'
             }, {
                 name: 'Buying Black Art'
             }]
