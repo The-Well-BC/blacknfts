@@ -52,6 +52,7 @@ export default {
     },
     methods: {
         handleScroll(event) {
+            let init = this.showHome;
 
             let docHeight = document.getElementById('app').scrollHeight;
 
@@ -64,6 +65,13 @@ export default {
                 this.showHome = true;
             else if(scrolledToTop && dy < -150)
                 this.showHome = false;
+
+            console.log('SHOW HOME:', this.showHome, '\nINITIAL VALUE:', init);
+
+            if(this.showHome !== init) {
+                window.scrollTo(0,0);
+                console.log('WINDOW', window.scrollTo);
+            }
 
             this.$store.state.showHeader = this.showHome;
         },
