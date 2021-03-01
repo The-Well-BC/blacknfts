@@ -11,7 +11,7 @@ body{
     font-weight: normal;
 }
 
-a.router-link-exact-active {
+nav a.router-link-exact-active {
     font-weight: bold;
 }
 
