@@ -1,6 +1,6 @@
 <template>
 <transition name = 'switch'>
-    <div v-show = 'showHome === true' class="home container main">
+    <div v-show = 'showHome === true' class="home container main switch">
         <div class = 'body-text'>
             <p>We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform.</p>
 
@@ -12,7 +12,7 @@
 </transition>
 
 <transition name = 'switch'>
-    <div v-show = 'showHome == false'>
+    <div v-show = 'showHome == false' id = 'page2'>
         <div class = 'header'>
             <div id = 'allYear'>
                 <p>Black Artists.</p>
@@ -35,6 +35,7 @@
 </template>
 
 <style scoped src = '@/assets/styles/home.css'></style>
+<style scoped src = '@/assets/styles/home-responsive.css'></style>
 
 <script>
 import TokenEmbed from '@/components/nfteEmbed.vue';

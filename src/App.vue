@@ -3,13 +3,15 @@
     <h1 v-if = 'showHeader' class="container culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
     <router-view/>
 
-    <footer class="container">
-        <nav>
-            <router-link :to = '{name: "Artists"}'>Artist List</router-link>
-            <router-link :to = '{name: "About"}'>About</router-link>
-            <router-link :to = '{name: "About"}'>NFTs</router-link>
-        </nav>
-        <p class="the-well">TheWell©</p>
+    <footer>
+        <div class="container">
+            <nav>
+                <router-link :to = '{name: "Artists"}'>Artist List</router-link>
+                <router-link :to = '{name: "About"}'>About</router-link>
+                <router-link :to = '{name: "About"}'>NFTs</router-link>
+            </nav>
+            <p class="the-well">TheWell©</p>
+        </div>
     </footer>
 </div>
 </template>
@@ -51,7 +53,6 @@ div#page > * {
 }
 div#page {
     position:relative;
-    padding-top: 3rem;
     min-height: 100vh;
 
     display: flex;

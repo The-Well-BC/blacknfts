@@ -8,6 +8,8 @@ div.header {
     font-size: 3.3rem;
     line-height: 1.2em;
     font-family: 'Maison Neue';
+
+    margin-bottom: 4rem;
 }
 
 div.header > * {
@@ -53,10 +55,20 @@ div.main {
 div.main > div{
     flex-shrink: 1;
 }
-
+div#page2.switch-enter-active,
+div#page2.switch-leave-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+div#page2.switch-enter-active {
+    background: white;
+}
 
 /* Switch transitions */
-.switch-enter-active, .switch-leave-active {
+.switch-leave-active, .switch-enter-active {
     transition: opacity .5s;
 }
 
