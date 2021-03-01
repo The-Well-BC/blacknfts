@@ -8,7 +8,7 @@
             <nav>
                 <router-link :to = '{name: "Artists"}'>Artist List</router-link>
                 <router-link :to = '{name: "About"}'>About</router-link>
-                <router-link :to = '{name: "About"}'>NFTs</router-link>
+                <router-link :to = '{name: "Home"}'>NFTs</router-link>
             </nav>
             <p class="the-well">TheWell©</p>
         </div>
