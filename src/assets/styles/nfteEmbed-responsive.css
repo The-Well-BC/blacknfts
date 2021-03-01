@@ -1,6 +1,9 @@
 @media screen and (max-width: 729px) {
     #nft-embed >>> .nfte--loaded {
         display: block;
+        display: flex;
+        flex-direction: column;
+
         height: 800px;
     }
 
