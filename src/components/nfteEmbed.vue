@@ -16,12 +16,23 @@
 
 <script>
 export default {
+    props: ['loadNFT', 'eventBus'],
     data() {
         return {
             token: null,
             loading: true
         }
     },
+
+    watch: {
+        loadNFT: function(newValue) {
+            console.log('NEW LOADnft VALUE', newValue);
+
+            if(newValue === true)
+                return this.placeEmbed();
+        },
+    },
+
     methods: {
         placeEmbed() {
             this.loading = true;
@@ -39,8 +50,14 @@ export default {
                 let nfteEmbed = document.createElement('script');
 
                 nfteEmbed.src = nfteURL;
+                let self = this;
+                nfteEmbed.onload = function() {
+                    self.loading = false;
+                    console.log('LOADED NFT EMED');
+                }
+
                 this.$refs['nft-embed'].firstElementChild.insertAdjacentElement('afterend', nfteEmbed);
-                this.loading = false;
+                // this.loading = false;
             });
         },
         randomNFT() {
@@ -95,6 +112,7 @@ export default {
     },
 
     mounted() {
+        // this.eventBus.$on('loadNFT', this.placeEmbed);
         return this.placeEmbed();
     }
 }

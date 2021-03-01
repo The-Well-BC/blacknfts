@@ -6,10 +6,10 @@
 
             <p>This is<br>CULTUREMEDIA.</p>
 
-            <button @click = 'placeEmbed' class="show-me-culture">show me culture</button>
+            <button @click = 'loadNFT = true' class="show-me-culture">show me culture</button>
         </div>
 
-        <TokenEmbed></TokenEmbed>
+        <TokenEmbed :loadNFT = loadNFT></TokenEmbed>
     </div>
 </transition>
 
@@ -44,9 +44,22 @@ import TokenEmbed from '@/components/nfteEmbed.vue';
 
 export default {
     name: 'Home',
+    watch: {
+        loadNFT(newValue) {
+            // console.log('OLD VALUE', oldValue);
+            let self = this;
+
+            if(newValue === true) {
+                setTimeout(() => {
+                    self.loadNFT = false;
+                });
+            }
+        }
+    },
     data() {
         return {
             showHome: false,
+            loadNFT: false,
             touch: {
                 initialY: null
             }

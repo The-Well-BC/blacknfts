@@ -4,6 +4,10 @@
         display: flex;
         flex-direction: column;
 
+    }
+
+    #nft-embed >>> .nfte--loaded,
+    div.loading {
         height: 800px;
     }
 
