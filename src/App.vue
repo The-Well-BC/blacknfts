@@ -1,28 +1,26 @@
 <template>
     <div id = 'page' :data-fitscreen = fitScreen>
-    <h1 v-if = 'showHeader' class="culture-media"><router-link to = '/'>CULTUREMEDIA©</router-link></h1>
+    <Header v-if = '$route.name != "Home"'></Header>
+
     <router-view/>
 
-    <footer>
-        <div class="container">
-            <nav>
-                <router-link :to = '{name: "Artists"}'>Artist List</router-link>
-                <router-link :to = '{name: "About"}'>About</router-link>
-                <router-link :to = '{name: "Home"}'>NFTs</router-link>
-            </nav>
-            <a target = '_blank' href = 'https://ownthewell.com' class="the-well">TheWell©</a>
-        </div>
-    </footer>
+    <Footer v-if = '$route.name != "Home"'></Footer>
 </div>
 </template>
 
 <script>
+import Header from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
 export default {
+    components: { Header, Footer },
     computed: {
         showHeader() {
             let route = this.$route.name != 'Home';
 
             return this.$store.getters.showHeader || route;
+        },
+        showFooter() {
+            return this.$store.getters.showFooter;
         },
         fitScreen() {
             let route = this.$route.name;
@@ -43,6 +41,9 @@ export default {
 <style src = '@/assets/styles/main-responsive.css'></style>
 
 <style>
+#app, #page {
+    overflow: hidden;
+}
 div#page[data-fitscreen=true] {
     height: 100vh;
 }
@@ -54,6 +55,5 @@ div#page {
     display: flex;
     flex-direction: column;
 }
-
 
 </style>

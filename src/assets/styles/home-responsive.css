@@ -10,14 +10,34 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    div.main {
+        flex-wrap: wrap;
+        grid-gap: 5rem;
+
+        position: relative;
+
+        padding-bottom: 2rem;
+    }
+
+    div.buttons {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+
+        display: flex;
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 724px) {
     .body-text {
+        margin-top: 2rem;
         font-size: 2rem;
     }
 
-    div.main {
-        flex-wrap: wrap;
-    }
 }
 
 @media screen and (max-width: 670px) {

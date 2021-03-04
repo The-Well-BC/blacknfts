@@ -70,26 +70,64 @@ div.main > div{
     max-width: 100%;
 }
 
-div#page2.switch-enter-active,
-div#page2.switch-leave-active {
+div.partition {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-div#page2.switch-enter-active {
-    background: white;
-}
 
 /* Switch transitions */
-.switch-leave-active, .switch-enter-active {
-    transition: opacity .5s;
+span.indicator.arrow {
+    animation: fadein 5s;
+}
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }
 
-.switch-enter, .switch-leave-to {
+#nft h1 {
     opacity: 0;
 }
+
+#header {
+    transition: top 2s;
+}
+.manifesto-leave-active, .manifesto-enter-active,
+.nft-leave-active, .nft-enter-active {
+    transition: transform 2s;
+}
+
+#header {
+    position: absolute;
+}
+#header.scrollUp {
+    top: 0 !important;
+}
+#header.fix {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.manifesto-leave-to,
+.manifesto-enter-from {
+    transform: translateY(-100%);
+}
+.nft-enter-from, .nft-leave-to {
+    transform: translateY(100%);
+}
+.nft-enter-to .header {
+    opacity: 0;
+}
+
+.manifesto-leave-from, .manifesto-enter-to,
+.nft-enter-to, .nft-leave-from {
+    transform: translateY(0);
+}
+/*
+*/
 /* END Switch transitions */
 
 .creator-name{

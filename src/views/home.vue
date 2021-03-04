@@ -1,20 +1,6 @@
 <template>
-<transition name = 'switch'>
-    <div v-show = 'showHome === true' class="home container main switch">
-        <div class = 'body-text'>
-            <p>We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform.</p>
-
-            <p>This is<br>CULTUREMEDIA.</p>
-
-            <button @click = 'loadNFT = true' class="show-me-culture">show me culture</button>
-        </div>
-
-        <TokenEmbed :loadNFT = loadNFT></TokenEmbed>
-    </div>
-</transition>
-
-<transition name = 'switch'>
-    <div v-show = 'showHome == false' id = 'page2'>
+<transition name = 'manifesto'>
+    <div v-show = 'showHome == false' id = 'page2' ref = 'manifesto'>
         <div class = 'header'>
             <div id = 'allYear'>
                 <p>Black Artists.</p>
@@ -27,11 +13,33 @@
             </div>
         </div>
         <div class = 'home container'>
-            <p class = 'rideForYou'>When platforms don’t ride for you, the culture creates one for themselves<br />↓</p>
+            <p class = 'rideForYou'><span class = 'one'>When platforms don’t ride for you,</span> <span class = 'two'>the culture creates one for themselves<br /><span class = 'indicator arrow'>↓</span></span></p>
 
-            <p class = 'rideForYou'>  This is →↘</p>
-            <p class = 'culturemedia'>CultureMedia©</p>
+            <p class = 'rideForYou'>This is <span id = 'arrow1'>→</span><span id = 'arrow2'>↘</span></p>
         </div>
+    </div>
+</transition>
+
+<Header ref = 'header' id = 'header' :class = '{scrollUp: showHome}'></Header>
+
+<transition name = 'nft'>
+    <div v-show = 'showHome === true' id = 'nft' class = 'partition'>
+        <Header></Header>
+
+        <div class="home container main switch">
+            <div class = 'body-text'>
+                <p>We celebrate black history all day everyday. If platforms don’t highlight us, then the culture makes a platform.</p>
+
+                <p>This is<br>CULTUREMEDIA.</p>
+
+                <div class = 'buttons'>
+                    <button @click = 'loadNFT = true' class="show-me-culture">show me culture</button>
+                </div>
+            </div>
+
+            <TokenEmbed :loadNFT = loadNFT></TokenEmbed>
+        </div>
+        <Footer></Footer>
     </div>
 </transition>
 </template>
@@ -41,6 +49,8 @@
 
 <script>
 import TokenEmbed from '@/components/nfteEmbed.vue';
+import Header from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
 
 export default {
     name: 'Home',
@@ -89,6 +99,7 @@ export default {
             }
 
             this.$store.state.showHeader = this.showHome;
+            this.$store.state.showFooter = this.showHome;
         },
 
         handleTouchStart(event) {
@@ -104,10 +115,13 @@ export default {
         let self = this;
         self.$store.state.showHeader = false;
 
+        console.log('HEADER', this.$refs.header.$el);
+        console.log('MAINFESTOR', this.$refs.manifesto);
+        this.$refs.header.$el.style.top = this.$refs.manifesto.clientHeight + 'px';
         document.addEventListener('wheel', this.handleScroll, true);
         document.addEventListener('touchstart', this.handleTouchStart, true);
         document.addEventListener('touchend', this.handleScroll, true);
     },
-    components: { TokenEmbed }
+    components: { TokenEmbed, Header, Footer }
 }
 </script>

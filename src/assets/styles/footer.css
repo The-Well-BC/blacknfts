@@ -1,0 +1,30 @@
+footer {
+    align-self: flex-end;
+    margin-top: 5vh;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+
+    border-top: 2px solid grey;
+
+    font-size: 1.5rem;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+
+    grid-gap: 2em;
+}
+
+footer a {
+    color: #000000;
+    
+    line-height: 1.2em;
+}
+
