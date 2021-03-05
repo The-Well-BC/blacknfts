@@ -90,7 +90,7 @@ export default {
             if(!this.lastScrollEvent)
                 this.lastScrollEvent = new Date().getTime();
 
-            let init = this.showContent;
+            // let init = this.showContent;
 
             let docHeight = document.getElementById('app').scrollHeight;
 
@@ -115,19 +115,17 @@ export default {
                         }
 
                         this.lastScrollEvent = new Date().getTime();
-                    } else if(timeDiff > 2000 && scrolledToBottom && dy > 10) {
-                            this.showContent = ['nft', 'header', 'thisis'];
+
+                        let self = this;
+                        setTimeout(function() {
+                            self.showContent = ['nft', 'header', 'thisis'];
+                        }, 2500);
                     }
 
                 } else if(scrolledToTop && dy < -10) {
                     this.showContent = ['manifesto', 'thisis', 'header'];
 
                     this.lastScrollEvent = new Date().getTime();
-                }
-
-                if(this.showHome !== init) {
-                    window.scrollTo(0,0);
-                    console.log('WINDOW', window.scrollTo);
                 }
             }
 

@@ -74,7 +74,7 @@ div.partition {
 }
 p#thisis {
     opacity: 1;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 #arrow1 {
     transition: opacity 1s 0.5s;
@@ -85,10 +85,6 @@ p#thisis {
 
 .header-enter-from {
     transform: translateX(100%);
-}
-.header-enter-active {
-    transition: transform 1s !important;
-    transition-delay: 1.2s !important;
 }
 .manifest-enter-active .indicator.arrow-center {
     animation: fadein 1s;
@@ -102,6 +98,15 @@ p.indicator.arrow-center {
 }
 #nft h1 {
     opacity: 0;
+}
+
+#header {
+    position: absolute;
+    transition: top 1s linear 0s, transform 1s linear 1.2s;
+}
+
+#header.scrollUp {
+    top: 0 !important;
 }
 
 .subtitle {
@@ -118,25 +123,9 @@ p.indicator.arrow-center {
 .hide {
     opacity: 0;
 }
-
-#header {
-    transition: top 2s;
-}
 .manifesto-leave-active, .manifesto-enter-active,
 .nft-leave-active, .nft-enter-active {
     transition: transform 2s;
-}
-
-#header {
-    position: absolute;
-}
-#header.scrollUp {
-    top: 0 !important;
-}
-#header.fix {
-    top: 0;
-    left: 0;
-    right: 0;
 }
 
 .manifesto-leave-to,
