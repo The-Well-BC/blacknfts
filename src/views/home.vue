@@ -1,7 +1,7 @@
 <template>
 <transition name = 'manifesto'>
-    <div v-show = 'showHome == false' id = 'page2' ref = 'manifesto'>
-        <div class = 'header'>
+    <div v-show = 'showContent.includes("manifesto")' id = 'page2' ref = 'manifesto'>
+        <div class = 'header' ref = 'manifestoHeader'>
             <div id = 'allYear'>
                 <p>Black Artists.</p>
                 <p>All Year. Every Year.</p>
@@ -12,18 +12,27 @@
                 <p>#BUYBLACK</p>
             </div>
         </div>
-        <div class = 'home container'>
-            <p class = 'rideForYou'><span class = 'one'>When platforms don’t ride for you,</span> <span class = 'two'>the culture creates one for themselves<br /><span class = 'indicator arrow'>↓</span></span></p>
+        <div class = 'home container' ref = 'manifestoContent'>
+            <transition name = 'when'>
+                <div v-show = 'showContent.includes("when")'>
+                    <p class = 'rideForYou' ><span class = 'one'>When platforms don’t ride for you,</span> <span class = 'two'>the culture creates one for themselves<br /></span></p>
+                    <p :class = '{indicator: !showContent.includes("thisis")}' class = 'rideForYou arrow-center'>↓</p>
+                </div>
+            </transition>
 
-            <p class = 'rideForYou'>This is <span id = 'arrow1'>→</span><span id = 'arrow2'>↘</span></p>
+            <transition name = 'thisis'>
+                <p id = 'thisis' :class = '{hide: !showContent.includes("thisis")}' class = 'rideForYou'>This is <span id = 'arrow1' class = 'arrow'>→</span><span class = 'arrow one' id = 'arrow2'>↘</span></p>
+            </transition>
         </div>
     </div>
 </transition>
 
-<Header ref = 'header' id = 'header' :class = '{scrollUp: showHome}'></Header>
+<transition name = 'header'>
+    <Header ref = 'header' id = 'header' v-show = 'showContent.includes("header")' :class = '{scrollUp: showContent.includes("nft")}'></Header>
+</transition>
 
 <transition name = 'nft'>
-    <div v-show = 'showHome === true' id = 'nft' class = 'partition'>
+    <div v-show = 'showContent.includes("nft")' id = 'nft' class = 'partition'>
         <Header></Header>
 
         <div class="home container main switch">
@@ -43,9 +52,6 @@
     </div>
 </transition>
 </template>
-
-<style scoped src = '@/assets/styles/home.css'></style>
-<style scoped src = '@/assets/styles/home-responsive.css'></style>
 
 <script>
 import TokenEmbed from '@/components/nfteEmbed.vue';
@@ -68,8 +74,9 @@ export default {
     },
     data() {
         return {
-            showHome: false,
+            showContent: ['manifesto', 'when'],
             loadNFT: false,
+            lastScrollEvent: null,
             touch: {
                 initialY: null
             }
@@ -77,7 +84,11 @@ export default {
     },
     methods: {
         handleScroll(event) {
-            let init = this.showHome;
+            let now = new Date().getTime();
+            if(!this.lastScrollEvent)
+                this.lastScrollEvent = new Date().getTime();
+
+            let init = this.showContent;
 
             let docHeight = document.getElementById('app').scrollHeight;
 
@@ -86,16 +97,36 @@ export default {
 
             let dy = event.deltaY || ( this.touch.initialY - event.changedTouches[0].clientY );
 
-            if(scrolledToBottom && dy > 10)
-                this.showHome = true;
-            else if(scrolledToTop && dy < -150)
-                this.showHome = false;
+            // console.log('DIFFERENCE', now - this.lastScrollEvent);
 
-            console.log('SHOW HOME:', this.showHome, '\nINITIAL VALUE:', init);
+            let timeDiff = now - this.lastScrollEvent;
 
-            if(this.showHome !== init) {
-                window.scrollTo(0,0);
-                console.log('WINDOW', window.scrollTo);
+            if(timeDiff > 250) {
+                if(scrolledToBottom && dy > 5) {
+                    if(!this.showContent.includes('thisis')) {
+                        this.showContent = ['manifesto', 'thisis'];
+                        console.log('MANIFESTO HEIGHT', this.$refs.manifesto.clientHeight);
+
+                        if(!this.showContent.includes('header')) {
+                            this.$refs.header.$el.style.top = parseInt(this.$refs.manifestoHeader.clientHeight + this.$refs.manifestoHeader.clientHeight) + 'px';
+                            this.showContent.push('header');
+                        }
+
+                        this.lastScrollEvent = new Date().getTime();
+                    } else if(timeDiff > 2000 && scrolledToBottom && dy > 10) {
+                            this.showContent = ['nft', 'header', 'thisis'];
+                    }
+
+                } else if(scrolledToTop && dy < -10) {
+                    this.showContent = ['manifesto', 'thisis', 'header'];
+
+                    this.lastScrollEvent = new Date().getTime();
+                }
+
+                if(this.showHome !== init) {
+                    window.scrollTo(0,0);
+                    console.log('WINDOW', window.scrollTo);
+                }
             }
 
             this.$store.state.showHeader = this.showHome;
@@ -115,9 +146,6 @@ export default {
         let self = this;
         self.$store.state.showHeader = false;
 
-        console.log('HEADER', this.$refs.header.$el);
-        console.log('MAINFESTOR', this.$refs.manifesto);
-        this.$refs.header.$el.style.top = this.$refs.manifesto.clientHeight + 'px';
         document.addEventListener('wheel', this.handleScroll, true);
         document.addEventListener('touchstart', this.handleTouchStart, true);
         document.addEventListener('touchend', this.handleScroll, true);
@@ -125,3 +153,24 @@ export default {
     components: { TokenEmbed, Header, Footer }
 }
 </script>
+
+<style scoped src = '@/assets/styles/home.css'></style>
+<style scoped src = '@/assets/styles/home-responsive.css'></style>
+<style>
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes arrow1 {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes arrow2 {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes bounce {
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(30px); }
+}
+</style>

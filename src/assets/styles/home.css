@@ -78,16 +78,43 @@ div.partition {
     bottom: 0;
 }
 
-/* Switch transitions */
-span.indicator.arrow {
-    animation: fadein 5s;
+/* Animations and Transitions */
+.hide#thisis, .hide#thisis span.arrow {
+    opacity: 0;
 }
-@keyframes fadein {
-    from { opacity: 0 }
-    to { opacity: 1 }
+p#thisis {
+    opacity: 1;
+    transition: opacity 1s;
+}
+#arrow1 {
+    transition: opacity 1s 0.5s;
+}
+#arrow2 {
+    transition: opacity 0.5s 1s;
 }
 
+.header-enter-from {
+    transform: translateX(100%);
+}
+.header-enter-active {
+    transition: transform 1s !important;
+    transition-delay: 1.2s !important;
+}
+.manifest-enter-active .indicator.arrow-center {
+    animation: fadein 1s;
+}
+
+p.arrow-center {
+    text-align: center;
+}
+p.indicator.arrow-center {
+    animation: bounce 1s ease-out infinite;
+}
 #nft h1 {
+    opacity: 0;
+}
+
+.hide {
     opacity: 0;
 }
 
