@@ -1,3 +1,7 @@
+:root {
+    --red-dark: #78363c;
+    --link: #d90e0e;
+}
 body, html, div, p {
     box-sizing: border-box;
 }

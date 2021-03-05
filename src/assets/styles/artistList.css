@@ -1,20 +1,66 @@
 div.list {
     max-height: 90vh;
     overflow-y: scroll;
-}
-div.list p {
+
     font-size: 3rem;
+}
+div.list p.name {
     display: flex;
     justify-content: space-between;
 
     grid-gap: 2rem;
 }
 
-div.list div {
+div.list > div {
     border-bottom :1px solid black;
 }
 
+div.list .extra {
+    border-top: 1px solid black;
+}
+
+div.list .extra p {
+    font-family: 'Maison Neue';
+    font-size: 1.3rem;
+    line-height: 1em;
+}
+
+div.list img {
+    background: grey;
+    border-radius: 50%;
+
+    width: 15rem;
+    height: 15rem;
+}
+
+div.list .extra > .container {
+    display: flex;
+    padding: 2rem;
+}
+div.list .extra > .container > * {
+    margin-left: 3rem;
+}
+
+.extra a {
+    color: var(--link);
+}
+.extra a:hover {
+    color: black;
+}
 a {
     white-space: nowrap;
     font-family: 'Maison Neue';
+}
+
+.title {
+    font-family: GT Sectra Fine;
+    white-space: nowrap;
+}
+
+.hasBio {
+    cursor: pointer;
+}
+
+.noBio {
+    cursor: not-allowed;
 }
