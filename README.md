@@ -1,6 +1,6 @@
 # CultureMedia website
 
-[Update Artists here](artistCSVs)
+[Update Artists here](public/artistCSVs)
 
 ## Project setup
 ```
