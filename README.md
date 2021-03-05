@@ -1,6 +1,6 @@
 # CultureMedia website
 
-[Update Artists here](blacknfts/tree/master/artistCSVs)
+[Update Artists here](artistCSVs)
 
 ## Project setup
 ```
