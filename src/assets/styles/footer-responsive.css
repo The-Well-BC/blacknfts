@@ -1,0 +1,28 @@
+@media screen and (max-width: 900px) {
+    footer nav > *:not(:last-child) {
+        margin-right: 8vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    footer {
+        display: block;
+
+        margin-top: 5rem;
+        border-top: 2px solid grey;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    footer {
+        font-size: 1rem;
+    }
+    footer nav > *:not(:last-child) {
+        margin-right: 6vw;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

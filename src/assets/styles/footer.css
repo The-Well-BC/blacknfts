@@ -18,9 +18,10 @@ footer > div {
 footer nav {
     display: flex;
     justify-content: space-between;
+}
 
-    grid-gap: 2em;
-    gap: 2em;
+footer nav > *:not(:last-child) {
+    margin-right: 2em;
 }
 
 footer a {

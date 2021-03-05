@@ -12,3 +12,4 @@
 </template>
 
 <style scoped src = '@/assets/styles/footer.css'></style>
+<style scoped src = '@/assets/styles/footer-responsive.css'></style>
