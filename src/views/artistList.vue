@@ -10,7 +10,7 @@
                 <img :src = 'item.avatar' />
                 <div>
                     <p class = 'title'>Bio</p>
-                    <p>{{ item.bio }}</p>
+                    <p v-html = 'highlightHashtags(item.bio)'></p>
                 </div>
 
                 <div v-if = 'item.links'>
@@ -32,6 +32,10 @@ export default {
         }
     }, 
     methods: {
+        highlightHashtags: function(text) {
+            console.log('TEXT', text);
+            return text.replace(/(#\w+)/g, '<span class = "highlight">$1</span>');
+        },
         updateVisibleBios: function(artistNo) {
             let i = this.showArtistBios.indexOf(artistNo)
 
