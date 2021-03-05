@@ -33,16 +33,6 @@ div.header p {
     margin-top: 4rem;
 }
 
-.show-me-culture{
-    background: #000000;
-    border-color: #000000;
-    color: white;
-    font-family: Maison Neue;
-    font-style: normal;
-    font-weight: bold;
-
-}
-
 div.main {
     display: flex;
     justify-content: center;
@@ -51,12 +41,12 @@ div.main {
 }
 
 .body-text{
-    margin-top: 4rem;
+    margin-top: 3rem;
 
     flex-basis: 21%;
 
     font-family: 'Maison Neue';
-    font-size: 3vw;
+    font-size: 2vw;
     line-height: 1em;
 }
 
@@ -112,6 +102,17 @@ p.indicator.arrow-center {
 }
 #nft h1 {
     opacity: 0;
+}
+
+.subtitle {
+    margin-top: 2em;
+
+    color: #777777;
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1em;
+
+    text-align: center;
 }
 
 .hide {

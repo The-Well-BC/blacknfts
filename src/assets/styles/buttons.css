@@ -6,4 +6,19 @@ button {
 
     font-size: 1.5rem;
     line-height: 1em;
+
+    background: #000000;
+    border-color: #000000;
+    color: white;
+    font-family: Maison Neue;
+    font-style: normal;
+    font-weight: bold;
+
+}
+
+button:hover {
+    background: #4e4e4e;
+    border-color: #4e4e4e;
+
+    color: black;
 }

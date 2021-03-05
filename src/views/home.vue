@@ -41,6 +41,8 @@
 
                 <p>This is<br>CULTUREMEDIA.</p>
 
+                <p class = 'subtitle'>Tap the "show me culture" button to load a new NFT</p>
+
                 <div class = 'buttons'>
                     <button @click = 'loadNFT = true' class="show-me-culture">show me culture</button>
                 </div>
