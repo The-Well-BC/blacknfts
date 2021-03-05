@@ -56,13 +56,19 @@ export default {
                     let links = {};
                     let linkText = i.Links;
 
-                    let raribleRegex = /rarible\s?\((.+?\))/i;
-                    let srRegex = /super\s?rare\s?\((.+?\))/i;
+                    let raribleRegex = /rarible\s?\((.+?)\)/i;
+                    let srRegex = /super\s?rare\s?\((.+?)\)/i;
+                    let zoraRegex = /zora\s?\((.+?)\)/i;
+                    let foundationRegex = /foundation\s?\((.+?)\)/i;
 
                     if(raribleRegex.test(linkText))
                         links['Rarible'] = linkText.match(raribleRegex)[1];
                     if(srRegex.test(linkText))
                         links['SuperRare'] = linkText.match(srRegex)[1];
+                    if(zoraRegex.test(linkText))
+                        links['Zora'] = linkText.match(zoraRegex)[1];
+                    if(foundationRegex.test(linkText))
+                        links['Foundation'] = linkText.match(foundationRegex)[1];
 
                     if( /^https:\/\/(www\.|m\.)?twitter\.com/i.test(twitter))
                         twitterProfile = twitter;
