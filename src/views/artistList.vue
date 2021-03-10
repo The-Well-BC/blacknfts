@@ -2,7 +2,7 @@
 <div class = 'list'>
     <div class = 'hasBio' v-for = '(item, index) in artists' :key = 'index' @click = 'showBio(index)'>
         <p class="container name"><span v-if = 'showArtistBios.includes(index)'>↓</span><span v-else>→</span> {{ item.name }}
-            <a v-if = 'item.twitterProfile' target = '_blank' :href = 'item.twitter.url'>twitter ↗</a>
+            <a v-if = 'item.twitter.url' target = '_blank' :href = 'item.twitter.url'>twitter ↗</a>
         </p>
 
         <div v-if = 'showArtistBios.includes(index)' class = 'extra'>
@@ -105,6 +105,7 @@ export default {
                         twitterUsername = twitterParts1[twitterParts1.length - 1];
                     }
                     if( /^twitter\.com/i.test(twitter)) {
+                        twitterProfile = 'https://' + twitter;
                         twitterUsername = twitterParts1[twitterParts1.length - 1];
                     } else if (/^@\w+/.test(twitter)) {
                         twitterProfile = 'https://twitter.com/' + twitter.replace(/^@/, '');
