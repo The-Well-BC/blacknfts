@@ -121,11 +121,6 @@ export default {
                             self.showContent = ['nft', 'header', 'thisis'];
                         }, 2500);
                     }
-
-                } else if(scrolledToTop && dy < -10) {
-                    this.showContent = ['manifesto', 'thisis', 'header'];
-
-                    this.lastScrollEvent = new Date().getTime();
                 }
             }
 
