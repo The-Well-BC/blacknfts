@@ -1,14 +1,14 @@
 <template>
 <div class = 'list'>
-    <div :class = '{hasBio: item.bio || item.links, noBio: !(item.bio && item.links)  }' v-for = '(item, index) in artists' :key = 'index' @click = 'showBio(index)'>
+    <div class = 'hasBio' v-for = '(item, index) in artists' :key = 'index' @click = 'showBio(index)'>
         <p class="container name"><span v-if = 'showArtistBios.includes(index)'>↓</span><span v-else>→</span> {{ item.name }}
             <a v-if = 'item.twitterProfile' target = '_blank' :href = 'item.twitter.url'>twitter ↗</a>
         </p>
 
-        <div v-if = '(item.bio || item.links) && showArtistBios.includes(index)' class = 'extra'>
+        <div v-if = 'showArtistBios.includes(index)' class = 'extra'>
             <div class = 'container'>
                 <img :src = 'item.avatar' />
-                <div>
+                <div v-if = 'item.bio'>
                     <p class = 'title'>Bio</p>
                     <p v-html = 'highlightHashtags(item.bio)'></p>
                 </div>
@@ -34,7 +34,7 @@ export default {
     }, 
     methods: {
         highlightHashtags: function(text) {
-            console.log('TEXT', text);
+            console.log('TEXT TO HIGHLIGHT', text);
             return text.replace(/(#\w+)/g, '<span class = "highlight">$1</span>');
         },
         fetchTwitterProfile(username) {
@@ -66,6 +66,9 @@ export default {
                 return this.fetchTwitterProfile(artist.twitter.username)
                 .then(res => {
                     artist.avatar = res.avatar;
+                    console.log('FETCHED TWITTER\n', res);
+                    artist.bio = res.description;
+                    console.log('ARTIST BIO', artist);
                 });
             }
 
@@ -104,17 +107,17 @@ export default {
 
                     if( /^https:\/\/(www\.|m\.)?twitter\.com/i.test(twitter)) {
                         twitterProfile = twitter;
-                        console.log('SPLITTING TWITTER 1', twitterParts1);
                         twitterUsername = twitterParts1[twitterParts1.length - 1];
-                        console.log('USERNAME', twitterUsername);
                     }
                     if( /^twitter\.com/i.test(twitter)) {
-                        console.log('SPLITTING TWITTER 2: ', twitter, twitterParts2);
-                        twitterProfile = 'https://' + twitter;
-                        twitterUsername = twitterParts2[twitterParts2.length - 1];
+                        twitterUsername = twitterParts1[twitterParts1.length - 1];
                     } else if (/^@\w+/.test(twitter)) {
                         twitterProfile = 'https://twitter.com/' + twitter.replace(/^@/, '');
+                        twitterProfile = 'https://' + twitter;
+                        twitterUsername = twitterParts2[twitterParts2.length - 1];
                     }
+
+                    console.log('USERNAME', twitterUsername);
 
                     return {
                         name: i['Artist Name'],
