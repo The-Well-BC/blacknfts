@@ -42,7 +42,7 @@ export default {
 
             let body = { usernames: [username] };
 
-            return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }`, body)
+            return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }/get_profiles/twitter/`, body)
             .then(res => {
                 res = res.data.profiles[0];
 
@@ -62,7 +62,7 @@ export default {
             if(!artist.avatar) {
                 return this.fetchTwitterProfile(artist.twitter.username)
                 .then(res => {
-                    artist.avatar = res.avatar;
+                    artist.avatar = res.avatar.replace('_normal', '_200x200');
                     artist.bio = res.description;
                 });
             }
@@ -109,7 +109,6 @@ export default {
                         twitterUsername = twitterParts1[twitterParts1.length - 1];
                     } else if (/^@\w+/.test(twitter)) {
                         twitterProfile = 'https://twitter.com/' + twitter.replace(/^@/, '');
-                        twitterProfile = 'https://' + twitter;
                         twitterUsername = twitterParts2[twitterParts2.length - 1];
                     }
 
