@@ -95,7 +95,7 @@ export default {
             let docHeight = document.getElementById('app').scrollHeight;
 
             let scrolledToBottom = (window.innerHeight + window.scrollY >= docHeight);
-            let scrolledToTop = window.scrollY === 0;
+            // let scrolledToTop = window.scrollY === 0;
 
             let dy = event.deltaY || ( this.touch.initialY - event.changedTouches[0].clientY );
 
@@ -107,7 +107,7 @@ export default {
                 if(scrolledToBottom && dy > 5) {
                     if(!this.showContent.includes('thisis')) {
                         this.showContent = ['manifesto', 'thisis'];
-                        console.log('MANIFESTO HEIGHT', this.$refs.manifesto.clientHeight);
+                        // console.log('MANIFESTO HEIGHT', this.$refs.manifesto.clientHeight);
 
                         if(!this.showContent.includes('header')) {
                             this.$refs.header.$el.style.top = parseInt(this.$refs.manifestoHeader.clientHeight + this.$refs.manifestoHeader.clientHeight) + 'px';

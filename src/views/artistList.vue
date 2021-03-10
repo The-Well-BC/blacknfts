@@ -34,17 +34,16 @@ export default {
     }, 
     methods: {
         highlightHashtags: function(text) {
-            console.log('TEXT TO HIGHLIGHT', text);
+            // console.log('TEXT TO HIGHLIGHT', text);
             return text.replace(/(#\w+)/g, '<span class = "highlight">$1</span>');
         },
         fetchTwitterProfile(username) {
-            console.log('FETCHING TWITTER PROFILE DATA FOR USER:', username);
+            // console.log('FETCHING TWITTER PROFILE DATA FOR USER:', username);
 
             let body = { usernames: [username] };
 
             return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }/get_profiles/twitter`, body)
             .then(res => {
-                console.log('USER', res.data);
                 res = res.data.profiles[0];
 
                 return res;
@@ -60,15 +59,11 @@ export default {
             else
                 this.showArtistBios.push(artistNo);
 
-            console.log('ARTIST', artist);
-
             if(!artist.avatar) {
                 return this.fetchTwitterProfile(artist.twitter.username)
                 .then(res => {
                     artist.avatar = res.avatar;
-                    console.log('FETCHED TWITTER\n', res);
                     artist.bio = res.description;
-                    console.log('ARTIST BIO', artist);
                 });
             }
 
@@ -117,7 +112,7 @@ export default {
                         twitterUsername = twitterParts2[twitterParts2.length - 1];
                     }
 
-                    console.log('USERNAME', twitterUsername);
+                    // console.log('USERNAME', twitterUsername);
 
                     return {
                         name: i['Artist Name'],
