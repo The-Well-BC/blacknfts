@@ -1,8 +1,8 @@
 <template>
 <div class = 'list'>
-    <div :class = '{hasBio: item.bio || item.links, noBio: !(item.bio && item.links)  }' v-for = '(item, index) in artists' :key = 'index' @click = 'updateVisibleBios(index)'>
+    <div :class = '{hasBio: item.bio || item.links, noBio: !(item.bio && item.links)  }' v-for = '(item, index) in artists' :key = 'index' @click = 'showBio(index)'>
         <p class="container name"><span v-if = 'showArtistBios.includes(index)'>↓</span><span v-else>→</span> {{ item.name }}
-            <a v-if = 'item.twitterProfile' target = '_blank' :href = 'item.twitterProfile'>twitter ↗</a>
+            <a v-if = 'item.twitterProfile' target = '_blank' :href = 'item.twitter.url'>twitter ↗</a>
         </p>
 
         <div v-if = '(item.bio || item.links) && showArtistBios.includes(index)' class = 'extra'>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default { 
     data() {
         return {
@@ -36,13 +37,37 @@ export default {
             console.log('TEXT', text);
             return text.replace(/(#\w+)/g, '<span class = "highlight">$1</span>');
         },
-        updateVisibleBios: function(artistNo) {
+        fetchTwitterProfile(username) {
+            console.log('FETCHING TWITTER PROFILE DATA FOR USER:', username);
+
+            let body = { usernames: [username] };
+
+            return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }/get_profiles/twitter`, body)
+            .then(res => {
+                console.log('USER', res.data);
+                res = res.data.profiles[0];
+
+                return res;
+            });
+        },
+        showBio: function(artistNo) {
+            let artist = this.artists[artistNo];
+
             let i = this.showArtistBios.indexOf(artistNo)
 
             if(i > -1)
                 this.showArtistBios.splice(i, 1)
             else
                 this.showArtistBios.push(artistNo);
+
+            console.log('ARTIST', artist);
+
+            if(!artist.avatar) {
+                return this.fetchTwitterProfile(artist.twitter.username)
+                .then(res => {
+                    artist.avatar = res.avatar;
+                });
+            }
 
             return true;
         },
@@ -54,7 +79,7 @@ export default {
                 let artists = window.$.csv.toObjects(csvs);
 
                 this.artists = artists.map(i => {
-                    let twitterProfile;
+                    let twitterProfile, twitterUsername;
                     let twitter = i.Twitter;
                     let bio = i.Bio;
                     let links = {};
@@ -74,11 +99,20 @@ export default {
                     if(foundationRegex.test(linkText))
                         links['Foundation'] = linkText.match(foundationRegex)[1];
 
-                    if( /^https:\/\/(www\.|m\.)?twitter\.com/i.test(twitter))
+                    let twitterParts1 = twitter.split('/');
+                    let twitterParts2 = twitter.split('@');
+
+                    if( /^https:\/\/(www\.|m\.)?twitter\.com/i.test(twitter)) {
                         twitterProfile = twitter;
-                    if( /^twitter\.com/i.test(twitter))
+                        console.log('SPLITTING TWITTER 1', twitterParts1);
+                        twitterUsername = twitterParts1[twitterParts1.length - 1];
+                        console.log('USERNAME', twitterUsername);
+                    }
+                    if( /^twitter\.com/i.test(twitter)) {
+                        console.log('SPLITTING TWITTER 2: ', twitter, twitterParts2);
                         twitterProfile = 'https://' + twitter;
-                    else if (/^@\w+/.test(twitter)) {
+                        twitterUsername = twitterParts2[twitterParts2.length - 1];
+                    } else if (/^@\w+/.test(twitter)) {
                         twitterProfile = 'https://twitter.com/' + twitter.replace(/^@/, '');
                     }
 
@@ -86,7 +120,11 @@ export default {
                         name: i['Artist Name'],
                         ...bio && { bio },
                         ...(Object.keys(links).length > 0) && {links},
-                        twitterProfile
+                        avatar: null,
+                        twitter: {
+                            url: twitterProfile,
+                            username: twitterUsername
+                        }
                     }
                 });
             });
