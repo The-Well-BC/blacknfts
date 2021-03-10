@@ -42,7 +42,7 @@ export default {
 
             let body = { usernames: [username] };
 
-            return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }/get_profiles/twitter`, body)
+            return axios.post(`${ process.env.VUE_APP_HEATBOT_URL }`, body)
             .then(res => {
                 res = res.data.profiles[0];
 
